@@ -1,0 +1,217 @@
+% !TEX program = xelatex
+\documentclass[12pt]{report}
+\usepackage{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{fontspec}
+\newfontface\sign{sign.ttf}
+\newcommand{\signature}[1]{{\Huge\sign #1}}
+
+\usepackage[base]{babel}
+\usepackage{float,wrapfig,subcaption}
+\usepackage{censor,parskip}
+\usepackage{wasysym}
+\usepackage[language=english]{lipsum}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.misc,shapes.callouts}
+\tikzset{spot/.style={draw, rectangle, fill=black, outer sep=2mm},
+    time/.style={inner sep=4mm, align=left},
+    desc/.style={outer xsep=4mm, inner sep=2mm, below=6mm, text width=7cm, shape=rectangle, callout absolute pointer={(#1)}}
+}
+
+
+\usepackage{enumitem}
+
+\usepackage{pgf-pie}
+
+\hfuzz=1000pt
+\tolerance=20000
+\hbadness=19999
+
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+\usepackage{marginnote}
+\newcommand{\sidewaystext}[1]{\marginnote{\rotatebox{90}{\large#1}}}
+
+\newcommand{\operation}{\uppercase{operation pharaoh}}
+\newcommand{\restriction}{\uppercase{classified}}
+\newcommand{\identifier}{Briefing 2905947}
+
+\usepackage[a4paper,heightrounded]{geometry}
+\geometry{top=25mm,bottom=20mm,textwidth=15cm,headheight=15pt}
+
+\renewcommand{\familydefault}{\ttdefault}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrule}{}
+\fancyhead[R]{\identifier}
+\fancyfoot[C]{} % remove page number
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\vspace*{1cm}
+
+\begin{Huge}
+  \operation
+\end{Huge}
+
+\vspace{0.5cm}
+
+\begin{Large}
+  Operation Overview
+\end{Large}
+
+\vfill
+
+\begin{large}
+Central Intelligence Agency\\
+\identifier
+\end{large}
+
+\vspace{0.8cm}
+\end{center}
+\end{titlepage}
+
+\section*{Mission Outline}%
+
+% \sidewaystext{\restriction}
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea \censor{takimata sanctus} est \censor{Lorem} ipsum dolor sit amet.
+
+Vamet labore et dolore magna erus
+
+\begin{itemize}[label={$\CheckedBox$}]
+%\begin{itemize}[label=$\CheckedBox$]
+  \item[$\Box$] Magnus ea et dolore diam.
+  \item Amek vorem delora vi nibus veros accunos juste sed diamus.
+  \item[$\Box$] Vires culpe accuses diam
+  \item[$\Box$] Vores et elitir sed amet ipsum
+\end{itemize}
+
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et \censor{ea rebum}. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+\begin{figure}[htpb]
+\centering
+\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|p{3cm}|  }
+ \hline
+ \multicolumn{4}{|c|}{Country List} \\
+ \hline
+ Country Name or Area Name& ISO ALPHA 2 Code &ISO ALPHA 3 Code&ISO numeric Code\\
+ \hline
+ Afghanistan   & AF    &AFG&   004\\
+ Aland Islands&   AX  & ALA   &248\\
+ Albania &AL & ALB&  008\\
+ Algeria    &DZ & DZA&  012\\
+ American Samoa&   AS  & ASM&016\\
+ Andorra& AD  & AND   &020\\
+ Angola& AO  & AGO&024\\
+ \hline
+\end{tabular}
+\caption{2014 Operation Details}
+\label{fig:stat-table}
+\end{figure}
+
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et \censor{dolore magna} aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus \censor{est Lorem ipsum} dolor sit amet.
+
+Lorem ipsum dolor sit amet, \censor{consetetur} sadipscing elitr, sed diam nonumy eirmod tempor \censor{invidunt ut labore} et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+\newpage
+
+Lorem ipsum dolor sit amet, consetetur sadipscing \censor{elitr}, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et \censor{accusam et justo} duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+\begin{figure}[htpb]
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+\node[anchor=south west,inner sep=0] (image) at (0,0)  {\includegraphics[width=0.8\textwidth]{map}};
+\coordinate (sydney) at (11.1,1.02);
+\coordinate (california) at (0.96,3.85);
+\coordinate (corner) at (0,0);
+
+\draw (california) edge node[]{\Large +}(california);
+\draw (sydney) edge node[]{\Large +}(sydney);
+
+\draw (sydney.east) edge node[xshift=14mm]{\scriptsize{-33.895, 151.209}}(sydney);
+\draw (california.west) edge node[xshift=-15mm]{\scriptsize{12118.36}}(sydney);
+%\draw (california.west) edge node[xshift=-10mm,yshift=5mm]{\scriptsize{-33.895, 151.209}}(california);
+
+\draw (corner) edge node[xshift=12.5mm]{\footnotesize{\uppercase{metric}}}(corner);
+%\draw (corner) edge node[xshift=2.5mm,yshift=5mm]{\footnotesize{\uppercase{op}}}(corner);
+\end{tikzpicture}
+\end{center}
+\end{figure}
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et \underline{dolore magna} aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+
+\begin{wrapfigure}{r}{0.67\textwidth}
+  \centering
+  \captionsetup{format=plain}
+  \begin{tikzpicture}
+    \pie[color={black!10, black!20, black!30, black!40},radius=1.8,text=legend]
+    {15/Europe, 18/Asia, 13/Oceana, 55/North America}
+  \end{tikzpicture}
+  \caption{Retards per Continent}
+\end{wrapfigure}
+
+At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.
+
+consetetur et vero eos.
+
+Sum sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos \underline{et accusam et justo} duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolors.
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, \censor{sed diam} voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea \textit{takimata} sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. \censor{Ait amet}.
+
+
+At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+\begin{wrapfigure}{l}{0.4\textwidth}
+  \centering
+  \begin{tikzpicture}[scale=1, transform shape]
+    \node[anchor=south west,inner sep=0] (image) at (0,0)  {\includegraphics[width=0.35\textwidth]{death}};
+    %\draw[draw=black,fill] (0.55,1.5) rectangle ++(1,1.4);
+    \draw[draw=black,fill] (3.5,1.6) rectangle ++(1.1,1);
+  \end{tikzpicture}
+  \caption*{Jane Doe (left) \#1}
+\end{wrapfigure}
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore \censor{magna aliquyam} erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit 
+
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam \censor{nonumy} eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+\begin{tikzpicture}
+\draw[thick](0,5)
+    --(0,9)node[spot](a1){}
+        node[time, left]{JUN 17th\\12:00 AM}
+        node[desc=a1.east, right]{1934\\ Jane Doe reported missing.}
+    --(0,6)node[spot](a2){}
+        node[time, right]{JUN 29th\\11:36 AM}
+        node[desc=a2.west, left]{1937\\ Jane doe seen leaving her apartment in a white gown carrying a black umbrella}
+    --(0,3)node[spot](a3){}
+        node[time, left]{JUL 1st\\10:30 AM}
+        node[desc=a3.east, right]{1940\\ Jane Doe is discovered decomposed by a farmer in West Virginia in a ditch};
+\end{tikzpicture}
+
+
+
+\lipsum[1-4]
+
+\bigskip
+\bigskip
+
+\signature{George W Bush}
+
+\smallskip
+
+George W Bush\\
+President of the United States
+
+\end{document}
